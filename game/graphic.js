@@ -1,7 +1,7 @@
 function init()
 {
     // set some camera attributes
-    var VIEW_ANGLE = 45,
+    var VIEW_ANGLE = 48,
         ASPECT = WIDTH / HEIGHT,
         NEAR = 0.1,
         FAR = 10000;
@@ -33,6 +33,7 @@ function init()
 
     ambientLight = new THREE.AmbientLight(0xFFFFFF, 1);
     scene.add(ambientLight);
+
 }
 
 function Ground(color, size_x, size_y, nb_tile)
