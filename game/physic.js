@@ -1,3 +1,5 @@
+const { ENGINE_METHOD_PKEY_ASN1_METHS } = require("constants");
+
 function update()
 {
     var delta = clock.getDelta(); // seconds.
@@ -13,6 +15,17 @@ function update()
     if (keyboard.pressed("down"))
         player1.decelerate(moveDistance);
 
+    if(Math.random(1)){
+        enemy1.turnRight(rotateAngle);
+        enemy1.accelerate(moveDistance)
+    }
+    else{
+        enemy1.turnLeft(rotateAngle);
+        enemy1.accelerate(moveDistance);
+    }
+           
+
     player1.move();
+    enemy1.move();
     controls.update();
 }
