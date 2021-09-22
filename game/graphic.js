@@ -28,8 +28,11 @@ function init()
     player1 = new Player("player1", 0xffff00, new THREE.Vector2(50, 0), 0);
     scene.add(player1.graphic);
 
-    light1 = new Light("sun", 0xffffff, "0,0,20");
+    light1 = new THREE.DirectionalLight(0xFFFFFF, 100);
     scene.add(light1);
+
+    ambientLight = new THREE.AmbientLight(0xFFFFFF, 1);
+    scene.add(ambientLight);
 }
 
 function Ground(color, size_x, size_y, nb_tile)
