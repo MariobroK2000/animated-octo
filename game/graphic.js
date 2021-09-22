@@ -25,7 +25,7 @@ function init()
     noGround = [];
     ground = new Ground(0xffffff, WIDTH, HEIGHT, 10);
     
-    player1 = new Player("player1", 0xffff00, new THREE.Vector2(50, 0), 0);
+    player1 = new Player("player1", 0xffff00, new THREE.Vector2(0, 0), 0);
     scene.add(player1.graphic);
 
     light1 = new THREE.DirectionalLight(0xFFFFFF, 100);
@@ -65,7 +65,14 @@ function Ground(color, size_x, size_y, nb_tile)
             else
                 noGround.push([x, y]);
         }
+        // Si la position de départ (0,0) est dans noGround, on l'enlève de façon à toujours commencer sur une tuile 
+        noGround.forEach(element => {
+            if ((element[0] == 0) && (element[1] == 0)){
+                noGround.pop(element);
+            }
+        });
     }
+
 }
 
 function Light(name, color, position)
